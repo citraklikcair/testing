@@ -42,7 +42,17 @@ async function test_case(){
     await driver.findElement(By.xpath('//*[@id="__next"]/div[1]/div/div[2]/div/form/div[3]/button'))
     .click()
 
-    
+    await driver.findElement(By.xpath('//*[@id="__next"]/div[2]/div'))
+
+   /* if(
+    //for error message if bad credential
+        await driver.findElement(By.xpath('//*[@id="__next"]/div[2]/div')).perform()){
+            console.log('test 3 failed')
+        }else{
+            console.log('test 3 passed')
+            return
+        }*/
+
 
     //setInterval(function(){
        driver.quit()
