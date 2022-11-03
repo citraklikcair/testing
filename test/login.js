@@ -1,5 +1,9 @@
 const {By, Key, Builder} = require("selenium-webdriver")
 require("chromedriver")
+var assert = require("assert")
+var webdriver = require("selenium-webdriver")
+
+var driver
 
 const chrome = require("selenium-webdriver/chrome")
 
@@ -47,3 +51,22 @@ async function test_case(){
 }
 
 test_case();
+
+/*before(function () {
+    driver = new webdriver.Builder()
+    .forBrowser('chrome')
+    .build()       
+})
+
+describe('Index page', function () {
+
+    this.timeout(5000000);
+
+    before(function () {
+        driver.get('http://google.com')
+    })
+
+    it('should show hello greetings', function (done) {
+        driver.findElement(By.name('q')).sendKeys('Selenium', Key.RETURN)
+    })
+})*/
