@@ -1,16 +1,48 @@
 const {By, Key, Builder} = require("selenium-webdriver")
 require("chromedriver")
 
+const chrome = require("selenium-webdriver/chrome")
+
 async function test_case(){
     let driver = await new Builder().forBrowser("chrome").build()
 
-    await driver.get("https://google.com")
 
-    await driver.findElement(By.name('q')).sendKeys("selenium", Key.RETURN)
+    await driver.get("https://admin.digitalcommunitylabs.com/login")
+    
 
-    setInterval(function(){
-        driver.quit()
-    }, 100000)
+    if(
+        await driver.findElement(By.xpath('//*[@id="__next"]/div[1]/div/div[2]/div/form/div[1]/div[2]/div/input'))
+        .isEnabled()){
+            console.log("test 1 passed")
+        }else{
+            console.log("test 1 failed")
+            return
+        }
+
+    await  driver.findElement(By.xpath('//*[@id="__next"]/div[1]/div/div[2]/div/form/div[1]/div[2]/div/input'))
+    .sendKeys("rinami2", Key.RETURN)
+    
+
+    if(
+        await driver.findElement(By.xpath('//*[@id="__next"]/div[1]/div/div[2]/div/form/div[2]/div[2]/div/input'))
+        .isEnabled()){
+            console.log("test 2 passed")
+        }else{
+            console.log("test 2 failed")
+            return
+        }
+
+    await driver.findElement(By.xpath('//*[@id="__next"]/div[1]/div/div[2]/div/form/div[2]/div[2]/div/input'))
+    .sendKeys("P@ssw0rd", Key.RETURN)
+    
+    await driver.findElement(By.xpath('//*[@id="__next"]/div[1]/div/div[2]/div/form/div[3]/button'))
+    .click()
+
+    
+
+    //setInterval(function(){
+       driver.quit()
+    //}, 1000000)
 
 }
 
