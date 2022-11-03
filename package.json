@@ -2,12 +2,12 @@
   "dependencies": {
     "chromedriver": "^107.0.3",
     "geckodriver": "^3.2.0",
+    "mocha": "^10.1.0",
     "selenium-webdriver": "^4.5.0"
   },
   "name": "autotest",
   "version": "1.0.0",
   "main": "index.js",
-  "devDependencies": {},
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
