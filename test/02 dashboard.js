@@ -12,10 +12,25 @@ describe("dashboard test", async function(){
 
     this.timeout(5000000)
         let driver =  new Builder().forBrowser("chrome").build();
-        driver.get("https://admin.digitalcommunitylabs.com/dashboard")
+        driver.get("https://admin.digitalcommunitylabs.com/login")
 
     //it block
-    it("positive verifikasi UI", async function(){
+    it('login', async function(){
+        await driver.findElement(By.xpath('//*[@id="__next"]/div[1]/div/div[2]/div/form/div[1]/div[2]/div/input'))
+        .sendKeys("citra")
+        await driver.findElement(By.xpath('//*[@id="__next"]/div[1]/div/div[2]/div/form/div[2]/div[2]/div/input'))
+        .sendKeys("Klikcair@123")  
+        await driver.findElement(By.xpath('//*[@id="__next"]/div[1]/div/div[2]/div/form/div[3]/button'))
+        .click()
+    })
+    it("positive verifikasi UI", async function(){        
+
+        {
+            const elements = await driver.findElements(By.css(".kc-button:nth-child(1) > .kc-button__content"))
+            assert(elements.length)
+          }
+    
+        await driver.findElement(By.css(".kc-button:nth-child(1) > .kc-button__content")).click()
         
         await driver.findElement(By.xpath('//*[@id="__next"]/aside/a/span'))
 		.getText('Digital Community Bank') 
@@ -40,5 +55,5 @@ describe("dashboard test", async function(){
     }) 
     
 
-    await webdriver.close()
+    await webdriver.quit()
 })

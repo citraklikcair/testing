@@ -1,15 +1,15 @@
 {
   "stats": {
     "suites": 2,
-    "tests": 5,
-    "passes": 3,
+    "tests": 6,
+    "passes": 4,
     "pending": 0,
     "failures": 2,
-    "start": "2022-11-27T13:24:48.637Z",
-    "end": "2022-11-27T13:24:54.633Z",
-    "duration": 5996,
-    "testsRegistered": 5,
-    "passPercent": 60,
+    "start": "2022-11-27T13:53:20.572Z",
+    "end": "2022-11-27T13:53:24.972Z",
+    "duration": 4400,
+    "testsRegistered": 6,
+    "passPercent": 66.66666666666666,
     "pendingPercent": 0,
     "other": 0,
     "hasOther": false,
@@ -18,7 +18,7 @@
   },
   "results": [
     {
-      "uuid": "94cc98a8-b04e-4974-bf12-c95dbe987fa5",
+      "uuid": "8fd71fcf-10e8-47f7-b35d-1403886837e2",
       "title": "",
       "fullFile": "",
       "file": "",
@@ -27,7 +27,7 @@
       "tests": [],
       "suites": [
         {
-          "uuid": "10a26704-7ec0-49d4-b25a-6aa99111b760",
+          "uuid": "f98eebd1-8f5f-4891-914b-20dc0651c922",
           "title": "dashboard test",
           "fullFile": "D:\\Autotest\\test\\02 dashboard.js",
           "file": "\\test\\02 dashboard.js",
@@ -35,23 +35,41 @@
           "afterHooks": [],
           "tests": [
             {
+              "title": "login",
+              "fullTitle": "dashboard test login",
+              "timedOut": null,
+              "duration": 3341,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "await driver.findElement(By.xpath('//*[@id=\"__next\"]/div[1]/div/div[2]/div/form/div[1]/div[2]/div/input'))\n.sendKeys(\"citra\")\nawait driver.findElement(By.xpath('//*[@id=\"__next\"]/div[1]/div/div[2]/div/form/div[2]/div[2]/div/input'))\n.sendKeys(\"Klikcair@123\")  \nawait driver.findElement(By.xpath('//*[@id=\"__next\"]/div[1]/div/div[2]/div/form/div[3]/button'))\n.click()",
+              "err": {},
+              "uuid": "bf7a9f9a-8979-4ea0-a0fc-11ffdc15c7eb",
+              "parentUUID": null,
+              "isHook": false,
+              "skipped": false
+            },
+            {
               "title": "positive verifikasi UI",
               "fullTitle": "dashboard test positive verifikasi UI",
               "timedOut": null,
-              "duration": 5204,
+              "duration": 95,
               "state": "failed",
               "speed": null,
               "pass": false,
               "fail": true,
               "pending": false,
               "context": null,
-              "code": "await driver.findElement(By.xpath('//*[@id=\"__next\"]/aside/a/span'))\n\t\t.getText('Digital Community Bank') \nawait driver.findElement(By.xpath('//*[@id=\"__next\"]/div[1]/div[1]/div/div/div[1]'))\n.getText('Dashboard') \nawait driver.findElement(By.xpath('//*[@id=\"__next\"]/aside/div/nav/ul/li[1]/a'))\n.getAttribute()\nawait driver.findElement(By.xpath('//*[@id=\"__next\"]/div[1]/div[1]/div/div/div[2]/ol/li/a'))\n.click()",
+              "code": "{\n            const elements = await driver.findElements(By.css(\".kc-button:nth-child(1) > .kc-button__content\"))\n            assert(elements.length)\n          }\n    \n        await driver.findElement(By.css(\".kc-button:nth-child(1) > .kc-button__content\")).click()\n        \n        await driver.findElement(By.xpath('//*[@id=\"__next\"]/aside/a/span'))\n\t\t.getText('Digital Community Bank') \n        await driver.findElement(By.xpath('//*[@id=\"__next\"]/div[1]/div[1]/div/div/div[1]'))\n        .getText('Dashboard') \n        await driver.findElement(By.xpath('//*[@id=\"__next\"]/aside/div/nav/ul/li[1]/a'))\n        .getAttribute()\n        await driver.findElement(By.xpath('//*[@id=\"__next\"]/div[1]/div[1]/div/div/div[2]/ol/li/a'))\n        .click()",
               "err": {
                 "message": "NoSuchElementError: no such element: Unable to locate element: {\"method\":\"xpath\",\"selector\":\"//*[@id=\"__next\"]/aside/a/span\"}\n  (Session info: chrome=107.0.5304.108)",
                 "estack": "NoSuchElementError: no such element: Unable to locate element: {\"method\":\"xpath\",\"selector\":\"//*[@id=\"__next\"]/aside/a/span\"}\n  (Session info: chrome=107.0.5304.108)\n    at Object.throwDecodedError (node_modules\\selenium-webdriver\\lib\\error.js:524:15)\n    at parseHttpResponse (node_modules\\selenium-webdriver\\lib\\http.js:587:13)\n    at Executor.execute (node_modules\\selenium-webdriver\\lib\\http.js:515:28)\n    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)\n    at async thenableWebDriverProxy.execute (node_modules\\selenium-webdriver\\lib\\webdriver.js:741:17)\n    at async toWireValue (node_modules\\selenium-webdriver\\lib\\webdriver.js:143:15)\n    at async D:\\Autotest\\node_modules\\selenium-webdriver\\lib\\webdriver.js:193:16\n    at async forEachKey (node_modules\\selenium-webdriver\\lib\\webdriver.js:187:9)\n    at async convertKeys (node_modules\\selenium-webdriver\\lib\\webdriver.js:192:3)\n    at async thenableWebDriverProxy.execute (node_modules\\selenium-webdriver\\lib\\webdriver.js:739:22)",
                 "diff": null
               },
-              "uuid": "d1c09f48-0ade-4527-aa6f-ecf682b20c93",
+              "uuid": "3b64dfb3-18e9-4a52-800e-05a0e61d9f34",
               "parentUUID": null,
               "isHook": false,
               "skipped": false
@@ -60,7 +78,7 @@
               "title": "positive verifikasi halaman users",
               "fullTitle": "dashboard test positive verifikasi halaman users",
               "timedOut": null,
-              "duration": 14,
+              "duration": 15,
               "state": "failed",
               "speed": null,
               "pass": false,
@@ -73,27 +91,29 @@
                 "estack": "NoSuchElementError: no such element: Unable to locate element: {\"method\":\"xpath\",\"selector\":\"//*[@id=\"__next\"]/aside/div/nav/ul/li[2]/a\"}\n  (Session info: chrome=107.0.5304.108)\n    at Object.throwDecodedError (node_modules\\selenium-webdriver\\lib\\error.js:524:15)\n    at parseHttpResponse (node_modules\\selenium-webdriver\\lib\\http.js:587:13)\n    at Executor.execute (node_modules\\selenium-webdriver\\lib\\http.js:515:28)\n    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)\n    at async thenableWebDriverProxy.execute (node_modules\\selenium-webdriver\\lib\\webdriver.js:741:17)\n    at async toWireValue (node_modules\\selenium-webdriver\\lib\\webdriver.js:143:15)\n    at async D:\\Autotest\\node_modules\\selenium-webdriver\\lib\\webdriver.js:193:16\n    at async forEachKey (node_modules\\selenium-webdriver\\lib\\webdriver.js:187:9)\n    at async convertKeys (node_modules\\selenium-webdriver\\lib\\webdriver.js:192:3)\n    at async thenableWebDriverProxy.execute (node_modules\\selenium-webdriver\\lib\\webdriver.js:739:22)",
                 "diff": null
               },
-              "uuid": "662927e2-d24e-4a66-9414-c5a239c6a2b2",
+              "uuid": "1ac0c8b3-90e3-4ec5-abce-78d463caf550",
               "parentUUID": null,
               "isHook": false,
               "skipped": false
             }
           ],
           "suites": [],
-          "passes": [],
+          "passes": [
+            "bf7a9f9a-8979-4ea0-a0fc-11ffdc15c7eb"
+          ],
           "failures": [
-            "d1c09f48-0ade-4527-aa6f-ecf682b20c93",
-            "662927e2-d24e-4a66-9414-c5a239c6a2b2"
+            "3b64dfb3-18e9-4a52-800e-05a0e61d9f34",
+            "1ac0c8b3-90e3-4ec5-abce-78d463caf550"
           ],
           "pending": [],
           "skipped": [],
-          "duration": 5218,
+          "duration": 3451,
           "root": false,
           "rootEmpty": false,
           "_timeout": null
         },
         {
-          "uuid": "09733a71-b277-4ad0-b589-0d13e90b33a4",
+          "uuid": "17d98915-bb88-4783-afe1-977292bb7727",
           "title": "login test",
           "fullFile": "D:\\Autotest\\test\\01 login.js",
           "file": "\\test\\01 login.js",
@@ -104,7 +124,7 @@
               "title": "positive verifikasi username",
               "fullTitle": "login test positive verifikasi username",
               "timedOut": null,
-              "duration": 5321,
+              "duration": 3456,
               "state": "passed",
               "speed": "slow",
               "pass": true,
@@ -113,7 +133,7 @@
               "context": null,
               "code": "await driver.findElement(By.xpath('//*[@id=\"__next\"]/div[1]/div/div[2]/div/form/div[1]/div[2]/div/input'))\n\t\t\t.isEnabled()\nawait driver.findElement(By.xpath('//*[@id=\"__next\"]/div[1]/div/div[2]/div/form/div[1]/div[2]/div/input'))\n.sendKeys(\"citra\")",
               "err": {},
-              "uuid": "fa60b0e8-a195-480c-b14c-1f2206e861b8",
+              "uuid": "55778497-e6e3-47bc-b31c-ab82f74503b0",
               "parentUUID": null,
               "isHook": false,
               "skipped": false
@@ -122,7 +142,7 @@
               "title": "positive verifikasi password",
               "fullTitle": "login test positive verifikasi password",
               "timedOut": null,
-              "duration": 83,
+              "duration": 173,
               "state": "passed",
               "speed": "slow",
               "pass": true,
@@ -131,7 +151,7 @@
               "context": null,
               "code": "await driver.findElement(By.xpath('//*[@id=\"__next\"]/div[1]/div/div[2]/div/form/div[2]/div[2]/div/input'))\n\t\t.isEnabled()\nawait driver.findElement(By.xpath('//*[@id=\"__next\"]/div[1]/div/div[2]/div/form/div[2]/div[2]/div/input'))\n.sendKeys(\"Klikcair@123\")",
               "err": {},
-              "uuid": "9837f21e-46ec-41db-b824-65c9f609e2d8",
+              "uuid": "d72856a9-46ab-44b1-8fdc-07ecdac1d7ba",
               "parentUUID": null,
               "isHook": false,
               "skipped": false
@@ -140,16 +160,16 @@
               "title": "positive click tombol login",
               "fullTitle": "login test positive click tombol login",
               "timedOut": null,
-              "duration": 40,
+              "duration": 102,
               "state": "passed",
-              "speed": "medium",
+              "speed": "slow",
               "pass": true,
               "fail": false,
               "pending": false,
               "context": null,
               "code": "await driver.findElement(By.xpath('//*[@id=\"__next\"]/div[1]/div/div[2]/div/form/div[3]/button'))\n.click()",
               "err": {},
-              "uuid": "a9c52a68-8d7a-4692-82dd-812426fbade2",
+              "uuid": "6aa88607-e3f7-4189-a439-6a2a33e2d732",
               "parentUUID": null,
               "isHook": false,
               "skipped": false
@@ -157,14 +177,14 @@
           ],
           "suites": [],
           "passes": [
-            "fa60b0e8-a195-480c-b14c-1f2206e861b8",
-            "9837f21e-46ec-41db-b824-65c9f609e2d8",
-            "a9c52a68-8d7a-4692-82dd-812426fbade2"
+            "55778497-e6e3-47bc-b31c-ab82f74503b0",
+            "d72856a9-46ab-44b1-8fdc-07ecdac1d7ba",
+            "6aa88607-e3f7-4189-a439-6a2a33e2d732"
           ],
           "failures": [],
           "pending": [],
           "skipped": [],
-          "duration": 5444,
+          "duration": 3731,
           "root": false,
           "rootEmpty": false,
           "_timeout": null
