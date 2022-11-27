@@ -2,81 +2,41 @@ const {By, Key, Builder} = require("selenium-webdriver")
 require("chromedriver")
 var assert = require("assert")
 var webdriver = require("selenium-webdriver")
-
+var should = require("chai").should();
 var driver
 
 const chrome = require("selenium-webdriver/chrome")
 
-async function test_case(){
-    let driver = await new Builder().forBrowser("chrome").build()
+//describe block
+describe("login test", function(){
 
+    this.timeout(5000000)
+        let driver =  new Builder().forBrowser("chrome").build();
+        driver.get("https://admin.digitalcommunitylabs.com/login")
 
-    await driver.get("https://admin.digitalcommunitylabs.com/login")
-    
-
-    if(
+    //it block
+    it("verifikasi username", async function(){
+        
         await driver.findElement(By.xpath('//*[@id="__next"]/div[1]/div/div[2]/div/form/div[1]/div[2]/div/input'))
-        .isEnabled()){
-            console.log("test 1 passed")
-        }else{
-            console.log("test 1 failed")
-            return
-        }
-
-    await  driver.findElement(By.xpath('//*[@id="__next"]/div[1]/div/div[2]/div/form/div[1]/div[2]/div/input'))
-    .sendKeys("rinami2", Key.RETURN)
-    
-
-    if(
+			.isEnabled()
+        await driver.findElement(By.xpath('//*[@id="__next"]/div[1]/div/div[2]/div/form/div[1]/div[2]/div/input'))
+        .sendKeys("citra")        
+    }) 
+    it("verifikasi password", async function(){
         await driver.findElement(By.xpath('//*[@id="__next"]/div[1]/div/div[2]/div/form/div[2]/div[2]/div/input'))
-        .isEnabled()){
-            console.log("test 2 passed")
-        }else{
-            console.log("test 2 failed")
-            return
-        }
+			.isEnabled()
+        await driver.findElement(By.xpath('//*[@id="__next"]/div[1]/div/div[2]/div/form/div[2]/div[2]/div/input'))
+        .sendKeys("Klikcair@123")  
+        
+        await driver.quit()
+    })
 
-    await driver.findElement(By.xpath('//*[@id="__next"]/div[1]/div/div[2]/div/form/div[2]/div[2]/div/input'))
-    .sendKeys("P@ssw0rd", Key.RETURN)
-    
-    await driver.findElement(By.xpath('//*[@id="__next"]/div[1]/div/div[2]/div/form/div[3]/button'))
-    .click()
-
-    await driver.findElement(By.xpath('//*[@id="__next"]/div[2]/div'))
-
-   /* if(
-    //for error message if bad credential
-        await driver.findElement(By.xpath('//*[@id="__next"]/div[2]/div')).perform()){
-            console.log('test 3 failed')
-        }else{
-            console.log('test 3 passed')
-            return
-        }*/
-
-
-    //setInterval(function(){
-       driver.quit()
-    //}, 1000000)
-
-}
-
-test_case();
-
-/*before(function () {
-    driver = new webdriver.Builder()
-    .forBrowser('chrome')
-    .build()       
+    it("verifikasi password", async function(){
+        await driver.findElement(By.xpath('//*[@id="__next"]/div[1]/div/div[2]/div/form/div[2]/div[2]/div/input'))
+			.isEnabled()
+        await driver.findElement(By.xpath('//*[@id="__next"]/div[1]/div/div[2]/div/form/div[2]/div[2]/div/input'))
+        .sendKeys("Klikcair@123")  
+        
+        await driver.quit()
+    })    
 })
-
-describe('Index page', function () {
-
-    this.timeout(5000000);
-
-    before(function () {
-        driver.get('http://google.com')
-    })
-
-    it('should show hello greetings', function (done) {
-        driver.findElement(By.name('q')).sendKeys('Selenium', Key.RETURN)
-    })
-})*/
